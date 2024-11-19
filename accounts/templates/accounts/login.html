@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+  <!-- Navbar -->
+  
+  <!-- Container for form -->
+  <div class="container">
+    <h2>Login</h2>
+    {% if error_message %}
+      <div class="error-message">{{ error_message }}</div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p }}
+      <button type="submit">Login</button>
+      <span>Do not have an account <a href="/signup">signup</a></span>
+    </form>
+  </div>
+</body>
+</html>
