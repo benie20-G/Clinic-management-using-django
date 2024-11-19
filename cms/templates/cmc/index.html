@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Appointment System - Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .card {
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-info {
+            background-color: #27ae60;
+            border: none;
+        }
+        .btn-info:hover {
+            background-color: #229954;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Medical Appointment Management System</h1>
+        
+        <div class="alert alert-info" role="alert">
+            <strong>Quick Guide:</strong> Use the navigation links below to explore each feature of the system.
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>1. Manage Appointments</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to view all upcoming and past appointments, create new appointments, and manage details like patient, doctor, date, and time.</p>
+                        <a href="{% url 'appointments_list' %}" class="btn btn-info">View Appointments</a>
+                        <a href="{% url 'create_appointment' %}" class="btn btn-info">Create New Appointment</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>2. Manage Patients</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to add new patients, edit patient records, and keep track of their contact details and medical history.</p>
+                        <a href="{% url 'patients_list' %}" class="btn btn-info">View Patients</a>
+                        <a href="{% url 'create_patient' %}" class="btn btn-info">Add New Patient</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>3. Manage Billing</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to track billing information for appointments, including total cost, payment status, and other financial details.</p>
+                        <a href="{% url 'billing_list' %}" class="btn btn-info">View Billing Records</a>
+                        <a href="{% url 'create_billing' %}" class="btn btn-info">Create New Billing</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>4. Reports and Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section provides analytical reports on appointments, patient statistics, and billing trends. Use it to track the performance of the clinic and get insights.</p>
+                        <a href="#" class="btn btn-info">Generate Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <h4>How It Works</h4>
+        </div>
+        <p>The Medical Appointment Management System is designed to help clinics manage their daily operations efficiently. Here's how each part of the system works:</p>
+        
+        <ul>
+            <li><strong>Appointments:</strong> Create and manage patient appointments, assigning doctors and times for each visit.</li>
+            <li><strong>Patients:</strong> Keep a detailed record of each patient's personal information and medical history.</li>
+            <li><strong>Billing:</strong> Generate invoices and track payment status for each appointment.</li>
+            <li><strong>Reports:</strong> Generate insights and reports to improve clinic performance.</li>
+        </ul>
+        
+        <div class="section-title">
+            <h4>Guides</h4>
+        </div>
+        <p>Follow these guides to get the most out of the system:</p>
+        
+        <ul>
+            <li><strong>Creating an Appointment:</strong> Navigate to the 'Create Appointment' page, select a patient, doctor, and the time slot, then click 'Submit'.</li>
+            <li><strong>Adding a New Patient:</strong> Go to 'Add Patient', fill out the personal and medical details, then save the record.</li>
+            <li><strong>Managing Billing:</strong> After an appointment, go to the 'Billing' section, enter the cost details, and update the payment status.</li>
+        </ul>
+
+        <div class="text-center mt-4">
+            <p>&copy; 2024 Medical Appointment System | All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
