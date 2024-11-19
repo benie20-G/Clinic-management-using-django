@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Medical Records</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">CliMa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"  >
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item"  >
+                        <a class="nav-link" href="{% url 'appointment_list' %}">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'doctors_list' %}">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'patient_list' %}">Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'billing_list' %}">Bills</a>
+                    </li>
+                    <li class="nav-item" id="current">
+                        <a class="nav-link" href="{% url 'all_records' %}">Medical Records</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+            
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <h1>Medical Record</h1>
+
+       
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for medical_record in medical_records %}
+           
+         
+                    <tr>
+                        <td>{{ medical_record.appointment.id }}</td>
+                        <td>{{ medical_record.diagnosis }}</td>
+                        <td>{{ medical_record.treatment }}</td>
+                    </tr>
+             
+        {% empty %}
+        <tr>
+            <td colspan="8" class="text-center">No Records made.</td>
+        </tr>
+        {% endfor %}
+
+   </tbody>
+            </table>
+            <a href="{% url 'appointment_list' %}" class="btn btn-secondary mt-2">Back to Appointments</a>
+        
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Medical Records</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Medical Record</h1>
+
+        {% if medical_record %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Appointment ID: {{ medical_record.appointment.id }}</h5>
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h6 class="card-subtitle mb-2 text-muted">Patients name</h6>
+                            <p class="card-text">{{ medical_record.appointment.patient.name }}</p>
+                        </div>
+                        <div class="flex-item">
+                            <h6 class="card-subtitle mb-2 text-muted">Doctor name</h6>
+                            <p class="card-text">{{ medical_record.appointment.doctor.name }}</p>
+                        </div>
+                    </div>
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <h6 class="card-subtitle mb-2 text-muted">Diagnosis</h6>
+                            <p class="card-text">{{ medical_record.diagnosis }}</p>
+                        </div>
+                        <div class="flex-item">
+                            <h6 class="card-subtitle mb-2 text-muted">Treatment</h6>
+                            <p class="card-text">{{ medical_record.treatment }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-warning">No medical records found.</div>
+        {% endif %}
+
+        <a href="{% url 'appointment_list' %}" class="btn btn-secondary mt-2">Back to Appointments</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
