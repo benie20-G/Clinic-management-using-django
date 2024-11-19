@@ -1,0 +1,36 @@
+<!-- templates/billing/create_billing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Billing</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+</head>
+<body>
+    <div class="container form-container">
+        <h1>Create Billing</h1>
+   
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="appointment">Appointment</label>
+                <select class="form-control" id="appointment" name="appointment" required>
+                    {% for appointment in appointments %}
+                        <option value="{{ appointment.id }}">{{ appointment.patient.name }} with {{ appointment.doctor.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {{form.as_p}}
+            <button type="submit" class="btn btn-submit btn-block">Create Billing</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
