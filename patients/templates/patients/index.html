@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Appointment System - Dashboard</title>
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+   
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">CliMa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"  id="current"  >
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'appointment_list' %}">Appointments</a>
+                    </li>
+                    <li class="nav-item"  >
+                        <a class="nav-link" href="{% url 'doctors_list' %}">Doctors</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{% url 'patient_list' %}">Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'billing_list' %}">Bills (Billings)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all_records' %}">Medical Records</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+
+    <div class="container">
+
+        <h1>Welcome to the Clinic Management System</h1>
+
+        
+        
+        <div class="alert alert-info" role="alert">
+            <strong>Quick Guide:</strong> Use the navigation links below to explore each feature of the system.
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>1. Manage Appointments</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to view all upcoming and past appointments, create new appointments, and manage details like patient, doctor, date, and time.</p>
+                        <a href="/appointments" class="btn btn-info">View Appointments</a>
+                        <a href="/appointments/create" class="btn btn-info">Create New Appointment</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>2. Manage Patients</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to add new patients, edit patient records, and keep track of their contact details and medical history.</p>
+                        <a href="/patients/" class="btn btn-info">View Patients</a>
+                        <a href="/patients/create" class="btn btn-info">Add New Patient</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>3. Manage Billing</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows you to track billing information for appointments, including total cost, payment status, and other financial details.</p>
+                        <a href="/billing/" class="btn btn-info">View Billing Records</a>
+                        <a href="/billing/create" class="btn btn-info">Create New Billing</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>4. Reports and Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section provides analytical reports on appointments, patient statistics, and billing trends. Use it to track the performance of the clinic and get insights.</p>
+                        <a href="/appointments/" class="btn btn-info">Generate Reports</a>
+                        <a href="/appointments/rec" class="btn btn-info">View Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>5.Manage Doctors</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>This section allows  you to view available docotors and basic information about them</p>
+                        <a href="/doctors/" class="btn btn-info">View Appointments</a>
+                        <a href="/doctors/register" class="btn btn-info">Create New Appointment</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="section-title">
+            <h4>How It Works</h4>
+        </div>
+        <p>The Medical Appointment Management System is designed to help clinics manage their daily operations efficiently. Here's how each part of the system works:</p>
+        
+        <ul>
+            <li><strong>Appointments:</strong> Create and manage patient appointments, assigning doctors and times for each visit.</li>
+            <li><strong>Patients:</strong> Keep a detailed record of each patient's personal information and medical history.</li>
+            <li><strong>Billing:</strong> Generate invoices and track payment status for each appointment.</li>
+            <li><strong>Reports:</strong> Generate insights and reports to improve clinic performance.</li>
+        </ul>
+        
+        <div class="section-title">
+            <h4>Guides</h4>
+        </div>
+        <p>Follow these guides to get the most out of the system:</p>
+        
+        <ul>
+            <li><strong>Creating an Appointment:</strong> Navigate to the 'Create Appointment' page, select a patient, doctor, and the time slot, then click 'Submit'.</li>
+            <li><strong>Adding a New Patient:</strong> Go to 'Add Patient', fill out the personal and medical details, then save the record.</li>
+            <li><strong>Managing Billing:</strong> After an appointment, go to the 'Billing' section, enter the cost details, and update the payment status.</li>
+        </ul>
+
+        <div class="text-center mt-4">
+            <p>&copy; 2024 Medical Appointment System | All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
